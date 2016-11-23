@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
     <title>Peer Group Project 1</title>
     <meta name="description" content="Webpage">
 <link rel="stylesheet" href="style.css">
@@ -16,10 +15,27 @@ BONUS CALCULATOR
 <button type="button" onclick="searchEmployee()">Search</button>
 <button type="button" style="display:block" onclick="displayAllEmployees()">Find All</button>
 
-</table> -->
 <div id="employeeTable"></div>
+
+
+    <form id="newEmployee">
+      <input type="text" id="employeeName" placeholder="Name Here">
+      <input type="text" id="employeeId" placeholder="Employee ID Here">
+      <input type="text" id="employeeSalary" placeholder="Employee Salary Here">
+      <select id="employeeRating">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+      <button type="button" onclick="addEmployee()">Add Employee</button>
+    </form>
+
     <script src="group_01.js"></script>
   </body>
+
+
 
 
 </html>

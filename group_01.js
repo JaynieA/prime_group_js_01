@@ -139,4 +139,19 @@ var searchEmployee = function (){
 
 }
 
+var addEmployee = function(){
+  //get inputs
+  var newName = document.getElementById("employeeName").value;
+  var newId = document.getElementById("employeeId").value;
+  var newSalary = document.getElementById("employeeSalary").value;
+  var newRating = Number(document.getElementById("employeeRating").value); // rest of array were integers not strings
+  console.log(newName, newId, newSalary, newRating);
+
+  //push new values to employee array
+  employees.push([newName, newId, newSalary, newRating]);
+  console.log(employees);
+
+  addSelectOptions();// reload our employ search options
+} //end of addEmployee
+
 addSelectOptions();

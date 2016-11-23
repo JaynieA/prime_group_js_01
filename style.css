@@ -1,3 +1,26 @@
+h1 {
+  text-align: center;
+}
+form {
+  text-align: center;
+}
+.searchAndFind {
+  text-align: center;
+}
+.find {
+  display: block;
+  margin: 15px auto 15px;;
+}
+
+
 table, td, th, tr {
   border: 1px solid black;
+}
+table {
+  border-collapse: collapse;
+  margin: 0 auto 15px;
+}
+th, td {
+  text-align: center;
+  padding: 5px;
 }

@@ -23,6 +23,9 @@ function returnBonus(employeeArray) {
   // Calculate the total salary
   var totalSalary = calcTotalSalary(bonusAmount, employeeArray[2]);
 
+  //Round to the nearest %
+  bonusPercent = Math.round(bonusPercent*100)/100;
+
   bonusAmount = Math.round(bonusAmount);
   // Rounds to the nearest penny
   totalSalary = Math.round(totalSalary * 100)/100;

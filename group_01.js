@@ -95,6 +95,19 @@ function adjustForCap(bonusPercent) {
 }
 
 
-for (var i = 0; i < employees.length; i++) {
-  console.log(returnBonus(employees[i]));
-}
+var displayAllEmployees = function() {
+
+  var table = document.getElementById("employeeTable");
+  var htmlString = "<table><tr><th>Name</th><th>Bonus %</th><th>Total Salary</th><th>Bonus Amount</th></tr>";
+  for (var i = 0; i < employees.length; i++) {
+    console.log(returnBonus(employees[i]));
+    var employee = returnBonus(employees[i]);
+    htmlString += "<tr>";
+    for (var j = 0; j < employee.length; j++) {
+        htmlString += "<td>" + employee[j] + "</td>";
+    }
+    htmlString += "</tr>";
+  }
+  htmlString += "</table>";
+  table.innerHTML = htmlString;
+};

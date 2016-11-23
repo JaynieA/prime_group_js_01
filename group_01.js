@@ -111,3 +111,20 @@ var displayAllEmployees = function() {
   htmlString += "</table>";
   table.innerHTML = htmlString;
 };
+
+var addSelectOptions = function(){
+  var htmlString = "";
+  for (var i = 0; i < employees.length; i++) {
+    console.log(employees[i][0]);
+    htmlString += "<option value='" + employees[i][0] + "' >" + employees[i][0] + "</option>";
+  }
+  document.getElementById("employeeSelect").innerHTML = htmlString;
+}
+
+var searchEmployee = function (){
+  var selectedEmployee = document.getElementById("employeeSelect").value;
+  console.log(selectedEmployee);
+
+}
+
+addSelectOptions();

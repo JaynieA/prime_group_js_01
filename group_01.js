@@ -94,6 +94,14 @@ function adjustForCap(bonusPercent) {
   return bonusPercent;
 }
 
+var displayEmployee = function(thisEmployee){
+  var htmlString = "<tr>";
+  for (var j = 0; j < thisEmployee.length; j++) {
+      htmlString += "<td>" + thisEmployee[j] + "</td>";
+  }
+  htmlString += "</tr>";
+  return htmlString;
+}
 
 var displayAllEmployees = function() {
 
@@ -102,11 +110,7 @@ var displayAllEmployees = function() {
   for (var i = 0; i < employees.length; i++) {
     console.log(returnBonus(employees[i]));
     var employee = returnBonus(employees[i]);
-    htmlString += "<tr>";
-    for (var j = 0; j < employee.length; j++) {
-        htmlString += "<td>" + employee[j] + "</td>";
-    }
-    htmlString += "</tr>";
+    htmlString += displayEmployee(employee);
   }
   htmlString += "</table>";
   table.innerHTML = htmlString;
@@ -124,6 +128,14 @@ var addSelectOptions = function(){
 var searchEmployee = function (){
   var selectedEmployee = document.getElementById("employeeSelect").value;
   console.log(selectedEmployee);
+  for (var i = 0; i < employees.length; i++) {
+    if (employees[i][0] == selectedEmployee){
+      var employeeBonus = returnBonus(employees[i]);
+    }
+  }
+    var table = document.getElementById("employeeTable");
+    var htmlString = "<table><tr><th>Name</th><th>Bonus %</th><th>Total Salary</th><th>Bonus Amount</th></tr>";
+    table.innerHTML = htmlString + displayEmployee(employeeBonus) + "</table>";
 
 }
 

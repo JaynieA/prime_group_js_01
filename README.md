@@ -38,5 +38,5 @@ Each employee array currently is configured in this way:
 
 ## Stretch Goals
 * [x] Add some basic styling
-* [ ] Add Data Persistence (keeping all calculations on the client side)
-* [ ] Host app on Heroku
+* [x] Add Data Persistence (while still keeping all calculations on the client side)
+* [x] Host app on Heroku

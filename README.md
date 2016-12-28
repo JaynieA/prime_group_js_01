@@ -40,3 +40,4 @@ Each employee array currently is configured in this way:
 * [x] Add some basic styling
 * [x] Add Data Persistence (while still keeping all calculations on the client side)
 * [x] Host app on Heroku
+  * [View On Heroku](https://thawing-badlands-94967.herokuapp.com/)

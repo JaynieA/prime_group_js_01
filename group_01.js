@@ -131,7 +131,7 @@ var displayEmployee = function(thisEmployee){
     if (j != 1) {
       //display as currency
       htmlString += "<td>" + thisEmployee[j].toLocaleString('en-US', {style: 'currency',currency: 'USD'}) + "</td>";
-    } else if (j = 1) {
+    } else if (j === 1) {
       //display as a percent
       htmlString += "<td>" + thisEmployee[j] + "%</td>";
     } else {

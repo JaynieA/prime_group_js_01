@@ -7,6 +7,7 @@ var robert = ["Robert", "26835", "66000", 1];
 var mayella = ["Mayella", "89068", "35000", 2];
 
 var employees = [atticus, jem, boo, scout, robert, mayella];
+var employees = [];
 
 
 $(document).ready(function() {
@@ -44,7 +45,12 @@ var getEmployees = function() {
     type: 'GET',
     success: function(response) {
       console.log(response.employees);
+
       addSelectOptions(response.employees);
+      for (var i = 0; i < response.employees.length; i++) {
+        employees.push(response.employees[i])
+      } // end for
+      console.log(employees);
     }, // end success
     error: function(err) {
       console.log(err);
@@ -54,7 +60,7 @@ var getEmployees = function() {
 
 
 var addSelectOptions = function(array){
-  console.log('in addSelectOptions', array);
+  console.log('in addSelectOptions');
   var htmlString = "";
   for (var i = 0; i < array.length; i++) {
     //console.log(employees);
@@ -161,17 +167,19 @@ var displayEmployee = function(thisEmployee){
   return htmlString;
 }; // end displayEmployee
 
-var returnBonus = function(employeeArray) {
-  console.log("In returnBonus with " + employeeArray);
+var returnBonus = function(employeeObject) {
+  console.log("In returnBonus with " + employeeObject.first_name);
   var bonusArray = [];
   // Add the employees name to the array
-  var name = employeeArray[0];
+  var name = employeeObject.first_name + ' ' + employeeObject.last_name;
+  //TODO: left off here
+  //employeeName, idNumber, annualSalary, rating
   // Calculate the percent bonus
-  var bonusPercent = calcBonusPercent(employeeArray[3], employeeArray[1], employeeArray[2]);
+  var bonusPercent = calcBonusPercent(employeeObject.rating, employeeObject.employee_number, employeeObject.annual_salary);
   // Calculate bonus amount
-  var bonusAmount = calcBonusAmount(bonusPercent, employeeArray[2]);
+  var bonusAmount = calcBonusAmount(bonusPercent, employeeObject.annual_salary);
   // Calculate the total salary
-  var totalSalary = calcTotalSalary(bonusAmount, employeeArray[2]);
+  var totalSalary = calcTotalSalary(bonusAmount, employeeObject.annual_salary);
   //Round to the nearest %
   bonusPercent = Math.round(bonusPercent*100)/100;
   bonusAmount = Math.round(bonusAmount);
@@ -182,11 +190,12 @@ var returnBonus = function(employeeArray) {
 }; // end returnBonus
 
 var searchEmployee = function (e){
+  console.log('in searchEmployee');
   e.preventDefault();
   var employeeBonus;
   var selectedEmployee = $("#employeeSelect").val();
   for (var i = 0; i < employees.length; i++) {
-    if (employees[i][0] == selectedEmployee){
+    if (employees[i].first_name == selectedEmployee){
       employeeBonus = returnBonus(employees[i]);
     } // end if
   } // end for

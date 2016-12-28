@@ -1,3 +1,4 @@
+//employeeName, idNumber, annualSalary, rating
 var atticus = ["Atticus", "2405", "47000", 3];
 var jem = ["Jem", "62347", "63500", 4];
 var boo = ["Boo", "11435", "54000", 3];
@@ -35,6 +36,22 @@ var addEmployee = function(e){
   //clear input and select values
   $('#newEmployee input, #newEmployee select').val('');
 }; //end addEmployee
+
+var getEmployees = function() {
+  console.log('in getEmployees');
+  $.ajax({
+    url:'/employee',
+    type: 'GET',
+    success: function(response) {
+      console.log(response);
+    }, // end success
+    error: function(err) {
+      console.log(err);
+    } // end error
+  }); // end ajax
+}; // end getEmployees
+
+getEmployees();
 
 var addSelectOptions = function(){
   console.log('in addSelectOptions');

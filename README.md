@@ -37,5 +37,5 @@ Each employee array currently is configured in this way:
 * [x] No bonus can be above 13% or below 0% total.
 
 ## Stretch Goals
-* [ ] Add some basic styling
-* [ ] Add Data Persistence 
+* [x] Add some basic styling
+* [ ] Add Data Persistence

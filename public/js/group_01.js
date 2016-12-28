@@ -15,7 +15,7 @@ $(document).ready(function() {
 
 var init = function() {
   console.log('in init');
-  addSelectOptions();
+  getEmployees();
   //Event Listeners
   $('.find').on('click', displayAllEmployees);
 }; // end init
@@ -43,7 +43,8 @@ var getEmployees = function() {
     url:'/employee',
     type: 'GET',
     success: function(response) {
-      console.log(response);
+      console.log(response.employees);
+      addSelectOptions(response.employees);
     }, // end success
     error: function(err) {
       console.log(err);
@@ -51,13 +52,13 @@ var getEmployees = function() {
   }); // end ajax
 }; // end getEmployees
 
-getEmployees();
 
-var addSelectOptions = function(){
-  console.log('in addSelectOptions');
+var addSelectOptions = function(array){
+  console.log('in addSelectOptions', array);
   var htmlString = "";
-  for (var i = 0; i < employees.length; i++) {
-    htmlString += "<option value='" + employees[i][0] + "' >" + employees[i][0] + "</option>";
+  for (var i = 0; i < array.length; i++) {
+    //console.log(employees);
+    htmlString += "<option value='" + array[i].first_name + "' >"+ array[i].first_name + ' ' + array[i].last_name + "</option>";
   } // end for
   $("#employeeSelect").html(htmlString);
 }; // end addSelectOptions

@@ -28,7 +28,6 @@ router.get('/', function(req, res) {
       }); // end query end
     } // end else
   }); // end pg connect
-  //res.send(true);
 }); // end app get
 
 

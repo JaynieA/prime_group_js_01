@@ -8,20 +8,21 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
     <link rel="stylesheet" href="css/style.css">
-    <script src="js/group_01.js"></script>
+    <script src="js/client.js"></script>
 </head>
 
 <body>
     <div class="container">
         <h1>Employee Bonus Calculator</h1>
         <form class="searchAndFind form-inline" onsubmit="searchEmployee(event)">
-            <select id="employeeSelect" class="form-control"></select>
+            <select id="employeeSelect" class="form-control" required></select>
             <button type="submit" class="btn btn-primary">Search</button>
         </form>
         <button class="find btn btn-info" type="button">Display All Bonuses</button>
         <div id="employeeTable"></div>
         <form id="newEmployee" class="form-inline" onsubmit="addEmployee(event)">
-            <input type="text" id="employeeName" placeholder="Name Here" class="form-control" required>
+            <input type="text" id="employeeFirstName" placeholder="First Name Here" class="form-control" required>
+            <input type="text" id="employeeLastName" placeholder="Last Name Here" class="form-control" required>
             <input type="number" id="employeeId" placeholder="Employee ID Here" class="form-control" required>
             <input type="number" id="employeeSalary" placeholder="Employee Salary Here" class="form-control" required>
             <select id="employeeRating" class="form-control" required>

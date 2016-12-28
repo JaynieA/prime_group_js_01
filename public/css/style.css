@@ -1,31 +1,23 @@
+/* GLOBAL STYLES */
 h1 {
   text-align: center;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 form {
   text-align: center;
 }
+th, td {
+  text-align: center;
+}
+thead {
+  background-color: #515150;
+  color: white;
+}
+/* LAYOUT */
 .searchAndFind {
   text-align: center;
 }
 .find {
   display: block;
   margin: 15px auto 15px;;
-}
-
-
-/*table, td, th, tr {
-  border: 1px solid black;
-}*/
-table {
-  border-collapse: collapse;
-  margin: 0 auto 15px;
-}
-th, td {
-  text-align: center;
-  padding: 5px;
-}
-thead {
-  background-color: #515150;
-  color: white;
 }

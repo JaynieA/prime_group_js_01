@@ -106,28 +106,38 @@ var calcBonusPercent = function(rating, employeeNum, salary) {
 var calcTotalSalary = function(bonusAmount, salary) {
   console.log("Calculating total compensation with salary $" + salary + " and bonus $" + bonusAmount);
   var totalSalary = bonusAmount + Number(salary);
+  //totalSalary = totalSalary.toLocaleString('en-US', {style: 'currency',currency: 'USD'});
   return totalSalary;
 }; // end calcTotalSalary
 
 var displayAllEmployees = function() {
   console.log('in displayAllEmployees');
   var table = $("#employeeTable");
-  var htmlString = '<table class="table"><tr><th>Name</th><th>Bonus %</th><th>Total Salary</th><th>Bonus Amount</th></tr>';
+  var htmlString = '<table class="table table-striped table-bordered"><thead><tr><th>Name</th><th>Bonus %</th><th>Total Salary</th><th>Bonus Amount</th></tr></thead><tbody>';
   for (var i = 0; i < employees.length; i++) {
     console.log(returnBonus(employees[i]));
     var employee = returnBonus(employees[i]);
     htmlString += displayEmployee(employee);
   } // end for
-  htmlString += "</table>";
+  htmlString += "</tbody></table>";
   table.html(htmlString);
 };// end displayAllEmployees
 
 var displayEmployee = function(thisEmployee){
-  console.log('in displayEmployee:', thisEmployee);
+  console.log('in displayEmployee:');
   var table = $("#employeeTable");
   var htmlString = "<tr>";
   for (var j = 0; j < thisEmployee.length; j++) {
+    if (j != 1) {
+      //display as currency
+      htmlString += "<td>" + thisEmployee[j].toLocaleString('en-US', {style: 'currency',currency: 'USD'}) + "</td>";
+    } else if (j = 1) {
+      //display as a percent
+      htmlString += "<td>" + thisEmployee[j] + "%</td>";
+    } else {
+      //display as is
       htmlString += "<td>" + thisEmployee[j] + "</td>";
+    } // end else
   } // end for
   htmlString += "</tr>";
   return htmlString;
@@ -163,6 +173,6 @@ var searchEmployee = function (e){
     } // end if
   } // end for
     var table = $("#employeeTable");
-    var htmlString = '<table class="table"><tr><th>Name</th><th>Bonus %</th><th>Total Salary</th><th>Bonus Amount</th></tr>';
-    table.html(htmlString + displayEmployee(employeeBonus) + "</table>");
+    var htmlString = '<table class="table table-striped table-bordered"><thead><tr><th>Name</th><th>Bonus %</th><th>Total Salary</th><th>Bonus Amount</th></tr></thead><tbody>';
+    table.html(htmlString + displayEmployee(employeeBonus) + "</tbody></table>");
 }; // end searchEmployee
